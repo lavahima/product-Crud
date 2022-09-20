@@ -1,0 +1,27 @@
+<h1>Product</h1>
+<input name="myControl" #yourInput (keyup)="applyFilter(yourInput.value)" placeholder="Filter" autocomplete="off" />
+
+<a routerLink="add" class="btn btn-sm btn-success mb-2">Add Product</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <!-- <th style="width: 30%">Product ID</th> -->
+            <th style="width: 30%">Product Name</th>
+            <th style="width: 30%">Product SKU</th>
+            <th style="width: 30%">Product Price</th>
+          
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{product.productName}}</td>
+            <td>{{product.productSKU}}</td>
+            <td>{{product.productPrice}}</td>
+        </tr>
+        <tr *ngIf="!products">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
